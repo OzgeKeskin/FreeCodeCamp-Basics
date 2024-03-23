@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  /*ögelerin toplam genişliği kapsayıcı divin genişliğini geçmeyecek şekilde olur. taşmayı engeller. Elemanlar küçülür.*/
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 350px;
+  height: 300px;
+  object-fit: cover; /*resim en boy oranı korunarak kutucuğa sığdırılır.*/
+  border-radius: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f5f6f7;
+}
+.header {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 32px;
+  background-color: #0a0a23;
+  color: #fff;
+  border-bottom: 4px solid #fdb347;
+}
+.gallery {
+  display: flex; /*kapsayıcı içindeki öğelere artık esneklik verebiliriz.*/
+  flex-direction: row;
+  flex-wrap: wrap; /* ögeler flex container çok küçükse nasıl davransın? aşağı geçsin istiyorsan wrap yazarsın.  */
+  justify-content: center; /*itemler flex container içinde nasıl pozisyon alsın? x ekseninde hizalandırır.*/
+  align-items: center; /*y ekseninde hizalandırır.*/
+  padding: 20px 10px;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 16px; /* ögeler arasına boşluk ekler*/
+}
+
+.gallery::after {
+  content: "";
+  width: 350px; /*diğer görsel boyutları ile aynı olmalı ki onlar kadar yer tutsun*/
+  /*son öğeden sonra 350px'lik boş bir öğe daha ekledik. çünkü sonda kalan resim justify-content:center özelliğinden dolayı ortalanmıştı. Bunu da diğerleriyle aynı hizaya çekmek için boş bir öğe ekledik.*/
+}
